@@ -28,6 +28,17 @@ void run_cli() {
                 printf("Utilizador registado com sucesso.\n");
             }
         } else if (strcmp(command, "EJ") == 0) {
+            char* name = strtok(NULL, " ");
+                if(user_exists(user, name)){
+                    if(player_sim(user, name)){
+                        printf("Utilizador tem espaços de simulação sem simulações realizadas.\n");
+                    }else{
+                        removeUser(user,name);
+                        printf("Utilizador removido com sucesso.\n");
+                    }
+                }else{
+                    printf("Utilizador não existente.\n");
+                }
         } else if (strcmp(command, "LJ") == 0) {
         } else if (strcmp(command, "RE") == 0) {
             char* name = strtok(NULL, " ");
